@@ -28,7 +28,6 @@
 ※現在時点
 
  The MIT License (MIT)
----------------------
         
  Copyright (c) 2012 davidshimjs
         

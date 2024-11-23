@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>バージョン情報</title>
+    <script>
+      // エラーを保存する共通関数
+      function saveError(message, source, lineno, colno, error) {
+          // `.html`, `.css`, `.js` を非表示にする処理
+          const cleanMessage = message?.toString().replace(/\.html|\.css|\.js/gi, '[filtered]') || "Unknown error";
+          const cleanSource = source?.toString().replace(/\.html|\.css|\.js/gi, '[filtered]') || "[unknown source]";
+  
+          // エラー情報のオブジェクト
+          const errorInfo = {
+              message: cleanMessage,
+              source: cleanSource,
+              lineno: lineno || 0,
+              colno: colno || 0,
+              time: new Date().toISOString(),
+          };
+  
+          // ローカルストレージに保存
+          const errorLogs = JSON.parse(localStorage.getItem('errorLogs') || '[]');
+          errorLogs.push(errorInfo);
+          localStorage.setItem('errorLogs', JSON.stringify(errorLogs));
+      }
+  
+      // 同期的なエラーをキャッチ
+      window.onerror = function (message, source, lineno, colno, error) {
+          saveError(message, source, lineno, colno, error);
+      };
+  
+      // 非同期のPromiseエラーをキャッチ
+      window.addEventListener("unhandledrejection", function (event) {
+          const error = event.reason || {};
+          saveError(
+              error.message || "Unhandled promise rejection",
+              error.stack || "[stack not available]",
+              0,
+              0,
+              error
+          );
+      });
+  
+      // ダミーエラーの発生（テスト用）
+      // console.log(unknownVariable); // コメントを外すと同期エラーを発生
+       //Promise.reject(new Error("This is a test promise rejection error.")); // 非同期エラーを発生
+  </script>
+    <style> 
+       .no-select {
+        user-select: none; /* 文字選択禁止 */
+        -webkit-user-select: none; /* Safari用 */
+        -ms-user-select: none; /* IE用 */
+      }
+      </style>
+    <script>
+        // 右クリック禁止
+        document.addEventListener('contextmenu', function (e) {
+          e.preventDefault();
+        });
+        // 開発ツール禁止
+        document.addEventListener('keydown', function (e) {
+          if (e.key === "F12" || (e.ctrlKey && e.shiftKey && e.key === "I")) {
+            e.preventDefault();
+          }
+        });
+        // リンクのドラッグ禁止
+        document.addEventListener('DOMContentLoaded', function () {
+          // ドラッグを無効化する処理
+          const links = document.querySelectorAll('a');
+          
+          links.forEach(function(link) {
+            // まず、draggable属性をfalseに設定
+            link.setAttribute('draggable', 'false');
+    
+            // ドラッグイベントをキャンセル
+            link.addEventListener('dragstart', function (e) {
+              e.preventDefault(); // ドラッグ開始を無効化
+            });
+    
+            // リンクのマウスダウンでもドラッグを無効化
+            link.addEventListener('mousedown', function (e) {
+              e.preventDefault(); // マウスダウンによるドラッグ開始を防ぐ
+            });
+          });
+        });
+        // 特定のホットキーを無効化
+    document.addEventListener('keydown', function (e) {
+      if (e.ctrlKey && (e.key === 'a')) {
+        e.preventDefault();  // Ctrl + A
+      }
+    });
+    
+      </script>
+<body>
+    <div>
+        <pre class="no-select"><p>
+        The MIT License (MIT)
+        ---------------------
+        Copyright (c) 2012 davidshimjs
+        
+Permission is hereby granted, free of charge,
+to any person obtaining a copy of this software and associated documentation files (the "Software"),
+to deal in the Software without restriction,
+including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense,
+and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so,
+subject to the following conditions:
+        
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+        
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, 
+INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. 
+IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, 
+WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.   
+
+
+Copyright 2020 Jordan Scales
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), 
+to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, 
+and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, 
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, 
+TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+
+
+The MIT License (MIT)
+
+Copyright (c) 2015-2023 SimplyPixelated Copyright (c) 2022-2023 NW.js Utilities
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, 
+including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, 
+subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, 
+TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+
+
+Copyright (c) 2011-2019 NW.js Authors
+Copyright (c) 2011-2019 The Chromium Authors
+Copyright (c) 2011-2018 Intel Corp
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of 
+this software and associated documentation files (the "Software"), to deal in
+the Software without restriction, including without limitation the rights to use, 
+copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the 
+Software, and to permit persons to whom the Software is furnished to do so,
+subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR 
+A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN 
+ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH
+THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+    </p></pre>
+</div>
+</body>

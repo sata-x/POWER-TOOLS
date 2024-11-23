@@ -1,2 +1,11 @@
 # POWER　TOOLS
-A free multifunctional toolkit designed to streamline workflows, automate tasks, and enhance productivity. Ideal for users, providing an efficient work environment.
+ワークフローを適正化し、タスクを自動化し、生産性を向上させる無料の多機能ツールキット。ユーザに最適で、効率的な作業環境を提供します。
+※現在開発中です。近日中にbeta-devをリリースします。
+# 機能
+PAS GEN
+パスワードジェネレータ
+文字数、記号を使用するかを指定できる
+
+PAS GEN PRO
+パスワードジェネレータ
+※現在時点

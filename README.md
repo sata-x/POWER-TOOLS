@@ -2,10 +2,10 @@
 ![POWER　TOOLS](https://raw.githubusercontent.com/sata-x/POWER-TOOLS/refs/heads/main/img/sukusyo_vegatool.png)
 
 ワークフローを適正化し、タスクを自動化し、生産性を向上させる無料の多機能ツールキット。ユーザに最適で、効率的な作業環境を提供します。
-※現在開発中です。近日中にbeta-devをリリースします。
 ## 開発
 
 現在、このプロジェクトは開発中です。機能の追加やバグ修正が行われており、最終的なリリースにはまだ時間がかかる予定です。
+現在の最新バージョンは、POWER TOOLS_Ver_beta-dev_202411231643です。
 
 ### 現在の進行状況
 
